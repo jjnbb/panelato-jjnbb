@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manga Translator</title>
+</head>
+<body>
+    <h1>Manga Translator</h1>
+    <form action="/translate" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" accept=".png, .jpg, .jpeg">
+        <button type="submit">Translate</button>
+    </form>
+
+    {% if original_text %}
+        <h2>Original Text:</h2>
+        <p>{{ original_text }}</p>
+    {% endif %}
+
+    {% if translated_text %}
+        <h2>Translated Text:</h2>
+        <p>{{ translated_text }}</p>
+    {% endif %}
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
